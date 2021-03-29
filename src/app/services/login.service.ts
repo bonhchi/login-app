@@ -9,6 +9,7 @@ export class LoginService{
     constructor(private http: HttpClient){}
 
     userLogged(data : any){
-      return this.http.post("https://localhost:44346/api/auth/login",data).toPromise();
+      return this.http.post("https://localhost:44346/api/auth/login",data).toPromise();      
   }
+    
 }

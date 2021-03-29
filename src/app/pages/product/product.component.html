@@ -1,0 +1,42 @@
+<h2 class="text-md-center">Sản phẩm</h2>
+<br />
+<h3>Số lượng sản phẩm: {{ products.length }}</h3>
+<p>
+  <a class="btn btn-primary" [routerLink]="['/product/add']">Thêm sản phẩm</a>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Tên sản phẩm</th>
+      <th>Hình ảnh</th>
+      <th>Số lượng</th>
+      <th>Giá</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.image }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <a
+          class="btn btn-outline-info"
+          [routerLink]="['/product/edit', product.id]"
+          >Chỉnh sửa</a
+        >
+        <a class="btn btn-outline-danger" (click)="deleteUser(product.id)"
+          >Xóa</a
+        >
+        <a
+          class="btn btn-outline-success"
+          [routerLink]="['/product/detail', product.id]"
+          >Chi tiết</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
